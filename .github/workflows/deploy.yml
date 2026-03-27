@@ -66,12 +66,12 @@ jobs:
       # 등록 => 서버키가 등록 
       - name: Add known_hosts
         run: |
-          ssh-keyscan -H ed25519 43.202.50.104 >> ~/.ssh/known_hosts
+          ssh-keyscan -H ed25519 13.124.42.238 >> ~/.ssh/known_hosts
 
       # container 실행
       - name: Deploy on server using DockerHub image
         run: |
-          ssh ubuntu@43.202.50.104 << 'EOF'
+          ssh ubuntu@13.124.42.238 << 'EOF'
             docker stop spring-my-app || true
             docker rm spring-my-app || true
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/spring-my-app:latest
